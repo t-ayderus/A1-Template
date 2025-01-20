@@ -29,7 +29,7 @@ public class Main {
                     }
                     System.out.print(System.lineSeparator());
 
-            }
+                }
             }
         } catch(Exception e) {
             logger.error("/!\\ An error has occured /!\\");
