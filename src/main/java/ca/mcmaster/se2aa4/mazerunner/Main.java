@@ -3,6 +3,10 @@ package ca.mcmaster.se2aa4.mazerunner;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.CommandLineParser;
+import org.apache.commons.cli.GnuParser;
+import org.apache.commons.cli.Options;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,22 +16,31 @@ public class Main {
 
     public static void main(String[] args) {
         logger.info("** Starting Maze Runner");
-        try {
+        
 
-            if(args[0].equals("-i"))
+            Options options = new Options();
+
+            options.addOption("i", true, "Input Maze" );
+            options.addOption("p",true,"User inputted potential path");
+
+            CommandLineParser parser = new GnuParser();
+            try {  CommandLine cmd = parser.parse(options, args);
+          
+            if(cmd.hasOption("i"))
             {
-                logger.info("**** Reading the maze from file " + args[1]);
-                BufferedReader reader = new BufferedReader(new FileReader(args[1]));
+                String filename = args[1];
+                logger.info("**** Reading the maze from file " + filename);
+                BufferedReader reader = new BufferedReader(new FileReader(filename));
                 String line;
                 while ((line = reader.readLine()) != null) {
                     for (int idx = 0; idx < line.length(); idx++) {
                         if (line.charAt(idx) == '#') {
-                            System.out.print("WALL ");
+                            logger.info("WALL ");
                         } else if (line.charAt(idx) == ' ') {
-                            System.out.print("PASS ");
+                            logger.info("PASS ");
                         }
                     }
-                    System.out.print(System.lineSeparator());
+                  //  System.out.print(System.lineSeparator());
 
                 }
             }
