@@ -103,7 +103,6 @@ public class MazeParser
 
 
        maze = mazeParser.parse(args[0]);
-       
 
         mazeParser.printMaze(maze);
         
