@@ -2,8 +2,6 @@
 
 package ca.mcmaster.se2aa4.mazerunner;
 
-import java.util.ArrayList;
-
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.GnuParser;
@@ -13,48 +11,37 @@ import org.apache.logging.log4j.Logger;
 
 public class Main{
 
-
-
-private static final Logger logger = LogManager.getLogger("mazeRunnerLogger");
-private static final MazeParser mazeParser = new MazeParser();
-private static final Runner player = new Runner();
-
-
-private static ArrayList<ArrayList<String>>  maze;
+private static final Logger logger = LogManager.getLogger();
+private static final Maze maze = new Maze();
 
     public static void main(String[] args) {
 
-        
         Options options = new Options();
         options.addOption("i", true, "Input Maze" );
-        options.addOption("p",true,"User inputted potential path");
+        options.addOption("p",true,"User Input Potential Path");
 
-         CommandLineParser parser = new GnuParser();
+        CommandLineParser parser = new GnuParser();
 
-         CommandLine cmd;
+        CommandLine cmd;
             
-        logger.info("** Starting Maze Runner");
+       logger.info("** Starting Maze Runner");
        try {
 
-             cmd = parser.parse(options, args);
+            cmd = parser.parse(options, args);
         
+            maze.setMaze(args[1]);
+            logger.info("**** Reading the maze from file " + args[1]);
 
             if(cmd.hasOption("p") && cmd.hasOption("i") )
             {
-                logger.info("**** Reading the maze from file " + args[1]);
-                maze = mazeParser.parse(args[1]);
-
-               //DEBUGGING 
-               //mazeParser.printMaze(maze);
-                player.setMaze(maze, mazeParser.getEntrance(maze));
-
-                player.moveRunner(args[3], mazeParser.getExit(maze) );
+                Runner player = new Runner( maze, maze.getEntrance());
+               // player.setMaze( maze, maze.getEntrance() );
+                player.moveRunner( args[3], maze.getExit() );
         
             }
             else if(cmd.hasOption("-i"))
             {
-                System.out.println("3F L 4F R 3F");
-
+                System.out.println("Path");
             }
             else{
                 logger.error("Incorrect Input");
@@ -62,9 +49,7 @@ private static ArrayList<ArrayList<String>>  maze;
             
         } catch(Exception e) {
            logger.error("/!\\ An error has occured /!\\");
-         }  
-        // logger.error("**** Computing path");
-        //logger.error("PATH NOT COMPUTED");
-        //logger.error("** End of MazeRunner");
+        }  
+       
     }
 }
