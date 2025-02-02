@@ -4,7 +4,6 @@ package ca.mcmaster.se2aa4.mazerunner;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,16 +13,7 @@ public class MazeParser
 {
 
     private final Logger logger = LogManager.getLogger();
-
-    public static void main(String[] args)
-    {
-        MazeParser mp = new MazeParser();
-        ArrayList<ArrayList<Path>>  maze = mp.parse(args[1]);
-        mp.printMaze(maze);
-
-    }
     
-
     //Finds Entrance of Maze
     public int[] getEntrance(ArrayList<ArrayList<Path>>  maze)
     {
@@ -38,7 +28,6 @@ public class MazeParser
     //Finds Exit of Maze
     public int[] getExit( ArrayList<ArrayList<Path>> maze)
     {
-        //Last Collum
         int end = maze.get(0).size() - 1;
 
         for(int i = 0; i<maze.size(); i++)
@@ -49,23 +38,6 @@ public class MazeParser
         return null;
     }
     
-
-
-     public void printMaze(ArrayList<ArrayList<Path>> maze )
-    {        
-        Iterator<ArrayList<Path>>  listIterator= maze.iterator();
-
-        while(listIterator.hasNext())
-        {
-            ArrayList<Path> row = (ArrayList<Path>) listIterator.next();
-            for(Path col: row)
-            {
-                System.out.print( col +" ");
-            }
-            System.out.print(System.lineSeparator());
-        } 
-
-    }
 
     //Method to parse and return 2D representation of maze
     public ArrayList<ArrayList<Path>> parse(String filePath)
@@ -94,6 +66,7 @@ public class MazeParser
     }
 
 
+    //Initialize Map to approrpriate dimensions
     public ArrayList<ArrayList<Path>> initializeMaze(String filePath)
     {
         int [] size = getSize(filePath);
@@ -111,7 +84,7 @@ public class MazeParser
         return maze;
     }
 
-
+    //Return Size of Map
     public int[] getSize(String filePath)
     {
         int rows = 0;
@@ -129,7 +102,6 @@ public class MazeParser
            logger.error("/!\\ An error has occured /!\\\n");
         }
         return new int[] {rows,length};
-
     }
 
 

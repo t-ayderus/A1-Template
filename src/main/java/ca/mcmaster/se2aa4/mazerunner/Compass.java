@@ -7,25 +7,20 @@ import org.apache.logging.log4j.Logger;
 //Class to model a Compass
 public class Compass{
 
-private final Logger logger = LogManager.getLogger();
-
+    private final Logger logger = LogManager.getLogger();
     private Direction D = Direction.E;
-
     private final int pos[] = new int[2];
+
     public Compass(int[] startPostion)
     {
         pos[0] = startPostion[0];
         pos[1] = startPostion[1];
-
     }
     
-
     public Direction getDirection()
     {
         return this.D;
     }
-
-
 
     public int [] getPosition()
     {
@@ -35,9 +30,7 @@ private final Logger logger = LogManager.getLogger();
     //Move Forward
     public int [] fwd(Maze maze)
     {
-
         try {
-
             if(this.getDirection() == Direction.N){ 
                     if(maze.getIndex(pos[0]-1, pos[1])  == (Path.PASS) )
                         pos[0]--;
@@ -67,7 +60,6 @@ private final Logger logger = LogManager.getLogger();
         } catch (Exception e) {
             logger.error("Error: Path Out of Bounds");
         }
-
         return pos;
        
     }

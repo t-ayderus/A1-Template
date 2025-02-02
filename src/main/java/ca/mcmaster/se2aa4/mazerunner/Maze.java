@@ -7,10 +7,10 @@ public class Maze{
 
     private final MazeParser mazeParser = new MazeParser();
     private ArrayList<ArrayList<Path>> maze = new ArrayList<>();
-
     private int[] entrance;
     private int[] exit;
 
+    //Set the Maze
     public void setMaze(String filePath)
     {
         this.maze = mazeParser.parse(filePath);
@@ -18,16 +18,19 @@ public class Maze{
         this.exit = mazeParser.getExit(maze);
     }
 
+    //Return Entrance Indices
     public int [] getEntrance()
     {
         return this.entrance;
     }
 
+    //Return Exit Indices
      public int [] getExit()
     {
         return this.exit;
     }
 
+    //Return Specefied Index in Array List
     public Path getIndex(int row, int col)
     {
         return this.maze.get(row).get(col);
