@@ -7,16 +7,8 @@
     </Appenders>
 
     <Loggers>
-         <Logger name="mazeRunnerLogger" level="OFF" additivity="false">
+        <Root level="OFF">
             <AppenderRef ref="console" />
-        </Logger>
-
-        <Logger name="runnerLogger" level="OFF" additivity="false">
-            <AppenderRef ref="console" />
-        </Logger>
-
-        <Root level="info">
-            <AppenderRef ref="console" />
-        </Root>        
+        </Root>
     </Loggers>
 </Configuration>
