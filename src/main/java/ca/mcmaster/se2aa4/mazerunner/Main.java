@@ -1,4 +1,8 @@
-
+/*
+ * File: Main.java
+ * Author: Tasnim Ayderus Abdulhakim
+ * Decription: A program that returns or verifies the path of a maze
+ */
 
 package ca.mcmaster.se2aa4.mazerunner;
 
@@ -13,6 +17,7 @@ public class Main{
 
 private static final Logger logger = LogManager.getLogger();
 private static final Maze maze = new Maze();
+private static final StringParser strParser = new StringParser();
 
     public static void main(String[] args) {
 
@@ -21,7 +26,6 @@ private static final Maze maze = new Maze();
         options.addOption("p",true,"User Input Potential Path");
 
         CommandLineParser parser = new GnuParser();
-
         CommandLine cmd;
             
        logger.info("** Starting Maze Runner");
@@ -34,20 +38,23 @@ private static final Maze maze = new Maze();
 
             if(cmd.hasOption("p") && cmd.hasOption("i") )
             {
-                Runner player = new Runner( maze, maze.getEntrance());
-               // player.setMaze( maze, maze.getEntrance() );
-                player.moveRunner( args[3], maze.getExit() );
-        
+                Player player = new Player( maze, maze.getEntrance());
+                String path = strParser.validateString(args[3]);
+                path = strParser.toCannonicalForm(path);
+                player.moveRunner( path);
             }
             else if(cmd.hasOption("-i"))
             {
-                System.out.println("Path");
+                Algorithm solver = new RightHand(maze, maze.getEntrance());        
+                System.out.println( strParser.toFactorizedForm(solver.findPath()) );
+
             }
             else{
                 logger.error("Incorrect Input");
             }
             
         } catch(Exception e) {
+           System.out.println(e.getMessage());
            logger.error("/!\\ An error has occured /!\\");
         }  
        

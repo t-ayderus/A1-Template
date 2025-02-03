@@ -1,3 +1,8 @@
+/*
+ * File: Compasss.java
+ * Author: Tasnim Ayderus Abdulhakim
+ * Decription: A class that models a Compass
+ */
 package ca.mcmaster.se2aa4.mazerunner;
 
 import org.apache.logging.log4j.LogManager;
@@ -10,6 +15,7 @@ public class Compass{
     private final Logger logger = LogManager.getLogger();
     private Direction D = Direction.E;
     private final int pos[] = new int[2];
+    private int startPos[] = new int[2];
 
     public Compass(int[] startPostion)
     {
@@ -64,6 +70,14 @@ public class Compass{
        
     }
 
+
+    //Set Compass to a speceficed postiion
+    public int [] setPosition(int [] newPos, Direction D){
+        pos[0] = newPos [0];
+        pos[1] = newPos [1];
+        this.D = D;
+        return pos;
+    }
 
     //Change Direction Left
     public void left()

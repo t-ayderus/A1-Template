@@ -1,3 +1,8 @@
+/*
+ * File: RightHand.java
+ * Author: Tasnim Ayderus Abdulhakim
+ * Decription: A class that uses the right hand rule to solve a maze
+ */
 package ca.mcmaster.se2aa4.mazerunner;
 
 import org.apache.logging.log4j.LogManager;
@@ -44,6 +49,7 @@ public class RightHand extends Algorithm{
     }
 
 
+    //Follow Right Hand Rule in North Direction
     public Move exploreNorth()
     {
         Move move = Move.NONE;
@@ -78,7 +84,7 @@ public class RightHand extends Algorithm{
         return move;
     }
     
-    
+    //Follow Right Hand Rule in East Direction
     public Move exploreEast()
     {
         Move move = Move.NONE;
@@ -111,7 +117,8 @@ public class RightHand extends Algorithm{
 
         return move;
     }
-    
+
+    //Follow Right Hand Rule in South Direction 
     public Move exploreSouth(){
         Move move = Move.NONE;
 
@@ -143,7 +150,7 @@ public class RightHand extends Algorithm{
         return move;
     }
     
-    
+    //Follow Right Hand Rule in West Direction 
     public Move exploreWest(){
         Move move = Move.NONE;
         try {
@@ -174,6 +181,7 @@ public class RightHand extends Algorithm{
         return move;
     }
     
+    //Implements RightHandRule
     public Move rightHandRule()
     {
         Move move= Move.NONE;

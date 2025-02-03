@@ -1,4 +1,9 @@
 
+/*
+ * File: StringParser.java
+ * Author: Tasnim Ayderus Abdulhakim
+ * Decription: A class that performs various operations on string to prepare for output or processing
+ */
 package ca.mcmaster.se2aa4.mazerunner;
 
 public class StringParser{

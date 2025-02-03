@@ -1,3 +1,8 @@
+/*
+ * File: Maze.java
+ * Author: Tasnim Ayderus Abdulhakim
+ * Decription: A class that models a maze
+ */
 package ca.mcmaster.se2aa4.mazerunner;
 
 import java.util.ArrayList;
