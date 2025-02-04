@@ -54,7 +54,6 @@ private static final StringParser strParser = new StringParser();
             }
             
         } catch(Exception e) {
-           System.out.println(e.getMessage());
            logger.error("/!\\ An error has occured /!\\");
         }  
        
