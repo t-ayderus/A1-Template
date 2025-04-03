@@ -18,6 +18,7 @@ public class TestPlayer{
     //Test to check the Right Hand Algorithm is working properly
     @Test
     public boolean testFollowPath(){
+        this.setUp();
         assertEquals(true, player.followPath("FFFFFFF"));
     }
 
