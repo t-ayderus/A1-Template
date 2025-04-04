@@ -8,44 +8,53 @@ package ca.mcmaster.se2aa4.mazerunner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
-public class RightHand extends Algorithm{
-
-    enum Move{
+enum Move{
         F,
         R,
         L,
         FR,
         FL,
         NONE
-    }
+}
+
+//Implements the Observer Pattern
+public class RightHand implements Algorithm{
 
     private final Logger logger = LogManager.getLogger();
     private Compass compass;
     private Maze maze;
     private int  pos[] = new int[2];
+    private Observer observer;
 
-    public RightHand(Maze currentMaze, int [] entrancePosition)
+    public RightHand(Maze currentMaze) // int [] entrancePosition)
     {
         this.maze =  currentMaze;
-        this.pos[0] = entrancePosition[0];
-        this.pos[1] = entrancePosition[1];
-        compass = new Compass(pos);
+        this.pos[0] = currentMaze.getEntrance()[0];
+        this.pos[1] = currentMaze.getEntrance()[1];
+        this.compass = new Compass(pos);
+    }
+
+
+    //Implements Observer Pattern using the Interface style
+    public void addObserver(Observer observer){
+        this.observer = observer;
+    }
+
+
+    public void notifyObserver(Move move){
+        if(observer != null){
+            observer.addMove(move);
+        }
     }
 
     public String findPath(){
-        StringBuilder path = new StringBuilder();
-
+        
         do{
-            path.append( rightHandRule().name() );
+            this.notifyObserver( this.rightHandRule() );
 
         }while(!( maze.getExit()[0] == pos[0]  && maze.getExit()[1]==pos[1] ) );
-
-        logger.info(pos[0] + "," + pos[1]);
         
-        String strPath = path.toString();
-
-        return strPath;
+        return observer.observedPath();
     }
 
 
@@ -69,17 +78,19 @@ public class RightHand extends Algorithm{
 
                     }else if(maze.getIndex(pos[0]-1, pos[1]+1) == Path.WALL)
                     {
-                            this.pos = compass.fwd(maze);
+                            compass.fwd(maze);
                             move = Move.F;
                     }else{
-                            this.pos = compass.fwd(maze);
+                            compass.fwd(maze);
                             compass.right();
                             move = Move.FR;
                         }
+                    
             
         } catch (Exception e) {
             logger.error("Error: Path Out of Bounds North Exploration");
         }
+        this.pos = compass.getPosition();
 
         return move;
     }
@@ -211,6 +222,5 @@ public class RightHand extends Algorithm{
         }
 
         
-    
 }
 

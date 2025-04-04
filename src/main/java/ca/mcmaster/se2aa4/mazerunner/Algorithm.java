@@ -5,6 +5,10 @@
  */
 package ca.mcmaster.se2aa4.mazerunner;
 
-public abstract class Algorithm {
-    public abstract String findPath();
+public interface Algorithm {
+    public String findPath();
+
+    public void addObserver(Observer observer);
+
+    public void notifyObserver(Move move);
 }

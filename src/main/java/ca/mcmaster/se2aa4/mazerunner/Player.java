@@ -11,13 +11,12 @@ import org.apache.logging.log4j.Logger;
 
 public class Player{
 
-
     private final Logger logger = LogManager.getLogger();
     private Maze maze;
     private int pos[] = new int[2];
     private Compass compass;
 
-    public Player (Maze currentMaze, int [] entrancePosition)
+    public Player(Maze currentMaze, int [] entrancePosition)
     {
         this.maze =  currentMaze;
         this.pos[0] = entrancePosition[0];
@@ -25,60 +24,37 @@ public class Player{
         compass =  new Compass(pos);
     }
 
-
-    public void moveRunner(String strPath)
-    {
-        //Assumes start is left side, facing East
-        if(this.followPath(strPath, maze.getExit() ) ){
-            System.out.println("correct path");
-        //Switch start to right side, facing West    
-        }else{
-
-            int [] newStart = maze.getExit();
-            compass.setPosition(newStart, Direction.W);
-            this.pos[0] = newStart[0];
-            this.pos[1] = newStart[1];
-            if(this.followPath(strPath, maze.getEntrance() ))
-                System.out.println("correct path");
-            else
-                System.out.println("incorrect path");
-        }
+    public void fwd(){
+        this.pos = compass.fwd(maze);
     }
 
-    //Takes in Cannocial Path and moves through maze
-    public Boolean followPath(String strPath,  int [] exitPosition )
-    {
-
-        for( int i = 0; i<strPath.length(); i++)
-        {
-            if(strPath.charAt(i) == 'F')
-                this.pos = compass.fwd(maze);
-
-            else if(strPath.charAt(i) == 'R'){   
-                compass.right();
-                logger.info("New Direction " + compass.getDirection());
-
-            }else if(strPath.charAt(i) == 'L'){
-                compass.left();
-                logger.info("New Direction " + compass.getDirection());
-        
-            }else
-                logger.error("Incorrect Input");
-
-            logger.info("Fwd: Row " + this.pos[0] + " Col " + this.pos[1]);
-
-        }
-
-        logger.info("Exit is at " + exitPosition[0] + ", " + exitPosition[1]);
-
-        if(this.pos[0] ==exitPosition[0] && this.pos[1] == exitPosition[1] )
-            return true;
-        else  
-            return false;
-
+    public void left(){
+        compass.left();
     }
 
+    public void right(){
+        compass.right();
+    }
 
+    public int[] getPosition(){
+        return this.pos;
+    }
 
+    public Direction getDirection(){
+        return compass.getDirection();
+    }
 
+    public void setPosition(int [] newPos, Direction newDir){
+        this.pos[0] = newPos[0];
+        this.pos[1] = newPos[1];
+        compass.setPosition(newPos, newDir);
+    }
+
+    public int [] getMazeEntrance(){
+        return maze.getEntrance();
+    }
+
+    public int [] getMazeExit(){
+        return maze.getExit();
+    }
 }

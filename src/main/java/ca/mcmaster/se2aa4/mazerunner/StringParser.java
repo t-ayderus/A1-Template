@@ -1,4 +1,3 @@
-
 /*
  * File: StringParser.java
  * Author: Tasnim Ayderus Abdulhakim

@@ -19,6 +19,12 @@ private static final Logger logger = LogManager.getLogger();
 private static final Maze maze = new Maze();
 private static final StringParser strParser = new StringParser();
 
+//Implements Command Pattern
+private static Command command;
+
+//Implements Observer Pattern
+private static Observer observer;
+
     public static void main(String[] args) {
 
         Options options = new Options();
@@ -30,28 +36,30 @@ private static final StringParser strParser = new StringParser();
             
        logger.info("** Starting Maze Runner");
        try {
-
             cmd = parser.parse(options, args);
         
             maze.setMaze(args[1]);
             logger.info("**** Reading the maze from file " + args[1]);
 
             if(cmd.hasOption("p") && cmd.hasOption("i") )
-            {
+            {   
                 Player player = new Player( maze, maze.getEntrance());
                 String path = strParser.validateString(args[3]);
                 path = strParser.toCannonicalForm(path);
-                player.moveRunner( path);
+                command = new FollowPathCommand(path,player);
             }
             else if(cmd.hasOption("-i"))
             {
-                Algorithm solver = new RightHand(maze, maze.getEntrance());        
-                System.out.println( strParser.toFactorizedForm(solver.findPath()) );
-
+                Algorithm algorithm = new RightHand(maze);
+                observer = new PathObservor();
+                algorithm.addObserver(observer);
+                command = new FindPathCommand(algorithm);
             }
             else{
                 logger.error("Incorrect Input");
             }
+
+            command.execute();
             
         } catch(Exception e) {
            logger.error("/!\\ An error has occured /!\\");
