@@ -11,6 +11,7 @@ public class FindPathCommand extends Command{
         this.algorithm = algorithm;
     }
 
+//Execute the find path command
     public void execute(){
         String path = algorithm.findPath();
         System.out.println( strParser.toFactorizedForm(path) );

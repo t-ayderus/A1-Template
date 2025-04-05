@@ -21,6 +21,7 @@ public class FollowPathCommand extends Command{
         this.player = player;
     }
 
+//Execute the follow path command
     @Override
     public void execute(){
         
@@ -34,10 +35,11 @@ public class FollowPathCommand extends Command{
             System.out.println("incorrect path");         
    }
 
+//Follow the path from the left side of the maze, facing East
     public boolean followPathEastSide(){
          return followPath();
     } 
-
+//Follow the path from current direction of the player
     public boolean followPath(){
          for( int i = 0; i<strPath.length(); i++)
         {
@@ -62,6 +64,7 @@ public class FollowPathCommand extends Command{
 
     }
     
+//Follow the path from the right side of the maze, facing West
     public boolean followPathWestSide(){
             int [] newStart = player.getMazeExit();
             this.exitPosition = player.getMazeEntrance();

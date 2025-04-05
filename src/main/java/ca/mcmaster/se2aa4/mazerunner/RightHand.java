@@ -41,12 +41,13 @@ public class RightHand implements Algorithm{
     }
 
 
+//Notifies the observer of the move made
     public void notifyObserver(Move move){
         if(observer != null){
             observer.addMove(move);
         }
     }
-
+//Returns the path taken to the exit
     public String findPath(){
         
         do{

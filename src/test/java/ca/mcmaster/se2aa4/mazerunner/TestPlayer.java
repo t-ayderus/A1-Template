@@ -15,10 +15,8 @@ public class TestPlayer{
         this.player = new Player(this.maze, maze.getEntrance());
 
     }
-    //Test to check the Right Hand Algorithm is working properly
-
-@Test
-    
+    //Test foward movement of player
+    @Test
     public void testFwd(){
         this.setUp();
         this.player.fwd();
@@ -27,6 +25,8 @@ public class TestPlayer{
 
     }
 
+    //Test left movement of player
+    @Test
     public void testLeft(){
         this.setUp();
         player.left();
@@ -39,7 +39,8 @@ public class TestPlayer{
         assertEquals(Direction.E, player.getDirection());
 
     }
-
+    //Test right movement of player
+    @Test
     public void testRight(){
          //Starts at East
         player.right();
@@ -53,6 +54,11 @@ public class TestPlayer{
 
     }
 
+    
+
+
+    //Test set poition of player
+    @Test
     public void testSetPosition(){
         this.setUp();
         player.setPosition(maze.getExit(), Direction.W);

@@ -24,36 +24,43 @@ public class Player{
         compass =  new Compass(pos);
     }
 
+//Move Player forward in the direction it is facing
     public void fwd(){
         this.pos = compass.fwd(maze);
     }
 
+//Move Player Left in the direction it is facing
     public void left(){
         compass.left();
     }
 
+//Move Player Right in the direction it is facing
     public void right(){
         compass.right();
     }
 
+//Get the current position of the player
     public int[] getPosition(){
         return this.pos;
     }
 
+//Get the current direction of the player
     public Direction getDirection(){
         return compass.getDirection();
     }
 
+//Set the current position of the player
     public void setPosition(int [] newPos, Direction newDir){
         this.pos[0] = newPos[0];
         this.pos[1] = newPos[1];
         compass.setPosition(newPos, newDir);
     }
 
+//Get maze entrance 
     public int [] getMazeEntrance(){
         return maze.getEntrance();
     }
-
+//Get maze exit
     public int [] getMazeExit(){
         return maze.getExit();
     }

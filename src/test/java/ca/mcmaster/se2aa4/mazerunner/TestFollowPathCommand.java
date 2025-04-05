@@ -19,12 +19,14 @@ public class TestFollowPathCommand{
          this.followPathCommand = new FollowPathCommand("FFFFFFF", this.player);
     }
 
+    //Test follow path starting from east side
     @Test
     public void testFollowPathEastSide(){
         this.setUp();
         assertEquals(true, followPathCommand.followPathEastSide() );
     }
-
+ //Test follow path starting from west side
+    @Test
     public void testFollowPathWestSide(){
         this.setUp();
         assertEquals(true, followPathCommand.followPathWestSide() );
