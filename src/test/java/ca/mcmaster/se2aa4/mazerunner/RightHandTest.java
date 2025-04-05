@@ -1,10 +1,21 @@
 package ca.mcmaster.se2aa4.mazerunner;
-
+/*
+ * File: RightHandTest.java
+ * Author: Tasnim Ayderus Abdulhakim
+ * Decription: A class that test the RightHand class
+ */
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import ca.mcmaster.se2aa4.mazerunner.mazelogic.Maze;
+import ca.mcmaster.se2aa4.mazerunner.mazelogic.Path;
+import ca.mcmaster.se2aa4.mazerunner.algorithmlogic.RightHand;
+import ca.mcmaster.se2aa4.mazerunner.algorithmlogic.Observer;
+import ca.mcmaster.se2aa4.mazerunner.algorithmlogic.PathObservor;
+import ca.mcmaster.se2aa4.mazerunner.navigation.Player;
 
 public class RightHandTest{
     private Maze maze;

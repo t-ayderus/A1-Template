@@ -1,9 +1,16 @@
 package ca.mcmaster.se2aa4.mazerunner;
-
+/*
+ * File: TestFollowPathCommand.java
+ * Author: Tasnim Ayderus Abdulhakim
+ * Decription: A class that test the FollowPathCommand class
+ */
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import ca.mcmaster.se2aa4.mazerunner.command.FollowPathCommand;
+import ca.mcmaster.se2aa4.mazerunner.mazelogic.Maze;
+import ca.mcmaster.se2aa4.mazerunner.navigation.Player;
 
 public class TestFollowPathCommand{
     private Maze maze;

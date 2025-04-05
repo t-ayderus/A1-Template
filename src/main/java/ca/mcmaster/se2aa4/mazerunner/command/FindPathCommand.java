@@ -1,5 +1,11 @@
-package ca.mcmaster.se2aa4.mazerunner;
-
+package ca.mcmaster.se2aa4.mazerunner.command;
+/*
+ * File: FindPathCommand.java
+ * Author: Tasnim Ayderus Abdulhakim
+ * Decription: A that extends the Command class to define the Find Path Command 
+ */
+import ca.mcmaster.se2aa4.mazerunner.StringParser;
+import ca.mcmaster.se2aa4.mazerunner.algorithmlogic.Algorithm;   
 
 public class FindPathCommand extends Command{
     

@@ -3,7 +3,7 @@
  * Author: Tasnim Ayderus Abdulhakim
  * Decription: A class that reads from a file
  */
-package ca.mcmaster.se2aa4.mazerunner;
+package ca.mcmaster.se2aa4.mazerunner.mazelogic;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

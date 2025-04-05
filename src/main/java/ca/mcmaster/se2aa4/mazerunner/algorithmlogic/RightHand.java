@@ -3,10 +3,15 @@
  * Author: Tasnim Ayderus Abdulhakim
  * Decription: A class that uses the right hand rule to solve a maze
  */
-package ca.mcmaster.se2aa4.mazerunner;
+package ca.mcmaster.se2aa4.mazerunner.algorithmlogic;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import ca.mcmaster.se2aa4.mazerunner.mazelogic.Maze;
+import ca.mcmaster.se2aa4.mazerunner.mazelogic.Path;
+import ca.mcmaster.se2aa4.mazerunner.navigation.Compass;
+import ca.mcmaster.se2aa4.mazerunner.navigation.Direction;
 
 enum Move{
         F,

@@ -1,8 +1,15 @@
 package ca.mcmaster.se2aa4.mazerunner;
-
+/*
+ * File: MazeTest.java
+ * Author: Tasnim Ayderus Abdulhakim
+ * Decription: A class that test the Maze class
+ */
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import ca.mcmaster.se2aa4.mazerunner.mazelogic.Maze;
+import ca.mcmaster.se2aa4.mazerunner.mazelogic.Path;
 
 public class MazeTest {
     private Maze maze;

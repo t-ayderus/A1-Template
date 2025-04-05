@@ -3,7 +3,7 @@
  * Author: Tasnim Ayderus Abdulhakim
  * Decription: A class that models a maze
  */
-package ca.mcmaster.se2aa4.mazerunner;
+package ca.mcmaster.se2aa4.mazerunner.mazelogic;
 
 import java.util.ArrayList;
 import java.util.Iterator;

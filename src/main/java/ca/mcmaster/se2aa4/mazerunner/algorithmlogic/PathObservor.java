@@ -1,7 +1,11 @@
-package ca.mcmaster.se2aa4.mazerunner;  
+package ca.mcmaster.se2aa4.mazerunner.algorithmlogic;  
+/*
+ * File: PathObserver.java
+ * Author: Tasnim Ayderus Abdulhakim
+ * Decription: A thatimplements the PathObserver class for the Observer Pattern
+ */
 
 //Implements the Observer Interface
-
 public class PathObservor implements Observer{
 
     private StringBuilder path;

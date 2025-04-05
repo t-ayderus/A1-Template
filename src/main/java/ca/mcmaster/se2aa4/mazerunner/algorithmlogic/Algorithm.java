@@ -3,7 +3,7 @@
  * Author: Tasnim Ayderus Abdulhakim
  * Decription: An Abstract class for algortihms
  */
-package ca.mcmaster.se2aa4.mazerunner;
+package ca.mcmaster.se2aa4.mazerunner.algorithmlogic;
 
 public interface Algorithm {
     public String findPath();

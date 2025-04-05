@@ -3,9 +3,9 @@
  * Author: Tasnim Ayderus Abdulhakim
  * Decription: Defines an Enum for Direction
  */
-package ca.mcmaster.se2aa4.mazerunner;
+package ca.mcmaster.se2aa4.mazerunner.navigation;
 
-enum Direction{
+public enum Direction{
 
     N,
     S,

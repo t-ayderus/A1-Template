@@ -13,6 +13,16 @@ import org.apache.commons.cli.Options;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import ca.mcmaster.se2aa4.mazerunner.algorithmlogic.Algorithm;
+import ca.mcmaster.se2aa4.mazerunner.algorithmlogic.Observer;
+import ca.mcmaster.se2aa4.mazerunner.algorithmlogic.PathObservor;
+import ca.mcmaster.se2aa4.mazerunner.algorithmlogic.RightHand;
+import ca.mcmaster.se2aa4.mazerunner.command.Command;
+import ca.mcmaster.se2aa4.mazerunner.command.FindPathCommand;
+import ca.mcmaster.se2aa4.mazerunner.command.FollowPathCommand;
+import ca.mcmaster.se2aa4.mazerunner.mazelogic.Maze;
+import ca.mcmaster.se2aa4.mazerunner.navigation.Player;
+
 public class Main{
 
 private static final Logger logger = LogManager.getLogger();

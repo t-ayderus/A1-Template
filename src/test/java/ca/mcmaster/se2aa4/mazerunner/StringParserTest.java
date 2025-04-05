@@ -1,5 +1,9 @@
 package ca.mcmaster.se2aa4.mazerunner;
-
+/*
+ * File: StringParserTest.java
+ * Author: Tasnim Ayderus Abdulhakim
+ * Decription: A class that test the String Parser class
+ */
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.BeforeEach;

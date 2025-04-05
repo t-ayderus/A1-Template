@@ -3,11 +3,13 @@
  * Author: Tasnim Ayderus Abdulhakim
  * Decription: A class that models a Compass
  */
-package ca.mcmaster.se2aa4.mazerunner;
+package ca.mcmaster.se2aa4.mazerunner.navigation;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import ca.mcmaster.se2aa4.mazerunner.mazelogic.Maze;
+import ca.mcmaster.se2aa4.mazerunner.mazelogic.Path;
 
 //Class to model a Compass
 public class Compass{

@@ -1,8 +1,15 @@
-package ca.mcmaster.se2aa4.mazerunner;
-
+package ca.mcmaster.se2aa4.mazerunner.command;
+/*
+ * File: FollowPathCommand.java
+ * Author: Tasnim Ayderus Abdulhakim
+ * Decription: A that extends the Command class to define the Follow Path Command
+ */
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import ca.mcmaster.se2aa4.mazerunner.mazelogic.Maze;
+import ca.mcmaster.se2aa4.mazerunner.navigation.Direction;
+import ca.mcmaster.se2aa4.mazerunner.navigation.Player;
 
 //Implements Command Pattern
 public class FollowPathCommand extends Command{

@@ -1,9 +1,17 @@
 package ca.mcmaster.se2aa4.mazerunner;
-
+/*
+ * File: CompasssTest.java
+ * Author: Tasnim Ayderus Abdulhakim
+ * Decription: A class that test the Compass class
+ */
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import ca.mcmaster.se2aa4.mazerunner.mazelogic.Maze;
+import ca.mcmaster.se2aa4.mazerunner.navigation.Compass;
+import ca.mcmaster.se2aa4.mazerunner.navigation.Direction;
 
 public class CompassTest{
 
